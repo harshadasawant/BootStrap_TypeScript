@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
+    "@types/jquery": "^3.5.10"
+  }
+}

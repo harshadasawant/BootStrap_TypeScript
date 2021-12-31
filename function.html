@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+
+    <script>
+        //  function function_name (arguments){
+        // function body
+        //  } -> end of function
+
+        //creating
+        const e = function myfunction(a, b) {
+            console.log("i am called from function");
+            return a * b;
+        }
+
+        const e1 = (a, b) => a * b;
+
+        const e2 = () => ({ type: "BMW", model: "s50", color: "white" });
+
+        //   const x = myfunction(5,6); // calling
+        //   console.log(myfunction(3,4));
+
+        console.log(e1(4, 5));
+
+        console.log(e2().model);
+// ====================================================
+        function myDisplayer(sum) {
+            document.getElementById("demo").innerHTML = sum;
+        }
+
+       const f= (sum) => 
+            document.getElementById("demo").innerHTML = sum;
+        
+
+        function myDisplayer1(sum) {
+            document.getElementById("demo1").innerHTML = sum;
+        }
+
+        function myCalculator(num1, num2) {
+            let sum = num1 + num2;
+         
+           return sum;
+        }
+
+        let d=myCalculator(6,7);
+        myDisplayer(d);
+//==================callback==============================
+
+        function myCalculator1(num1, num2, var1) {
+            let sum = num1 + num2;
+            var1(sum);
+        }
+
+       
+        myCalculator1(5, 5, f);
+
+
+        // ----------------------------------promises-----------------------
+
+        const q=(mesg) =>  document.getElementById("demo1").innerHTML = mesg;    //Ok if x=200  if not 200 then display Error
+        
+       
+        let myPromise = new Promise(function(myResolve,myReject){
+           setTimeout(()=> {
+            let x=200;
+            if(x==200){
+                myResolve("Successful") //myDisplay("OK");
+            } else{
+                myReject("Error"); //myDisplay("Error")
+            }
+         }, 3000);
+        });
+
+        myPromise.then(
+            function(value){q(value);}, //->myResolve
+            function(value){q(value); } //-> myReject
+        );
+
+        // ==================setInterval=====================
+        
+        // function myTimer() {
+        // var d = new Date();
+        // var t = d.toLocaleTimeString();
+        // document.getElementById("demo2").innerHTML = t;
+        // }
+
+        const time=(a)=> {
+        var d = new Date();
+        var t = d.toLocaleTimeString();
+        console.log("a=="+a)
+        document.getElementById("demo3").innerHTML = t;
+        };
+
+        var myVar = setInterval(time("current time"), 1000);
+
+        // ==========================Set==========================
+        // Create a Set
+        const letters = new Set();
+
+        // Add some values to the Set
+        letters.add("a");
+        letters.add("b");
+        letters.add("c");
+        letters.add("d");
+        letters.add("a");
+        document.getElementById("demo3").innerHTML = letters.size;
+        var text="";
+        for (let x of letters) {
+        text += x + " ";
+
+        }
+        console.log(text);
+
+        // ==================================Map=============================
+
+        const map1 = new Map();
+
+        map1.set('a', 1);
+        map1.set('b', 2);
+        map1.set('c', 3);
+
+        console.log(map1.get('a'));
+        // expected output: 1
+
+        map1.set('a', 97);
+
+        console.log(map1.get('a'));
+        // expected output: 97
+
+        console.log(map1.size);
+        // expected output: 3
+
+        map1.delete('b');
+
+        console.log(map1.size);
+
+        // ===================================symbol==========================
+        
+        const person = {
+        firstName: "John",
+        lastName: "Doe",
+        age: 50,
+        eyeColor: "blue"
+        };
+
+        let id = Symbol('id');// some unique  id
+        person[id] = 140353; // value of that id
+
+        console.log(Symbol('id')==Symbol('id'))//evry id is unique
+
+        document.getElementById("demo4").innerHTML = person[id] + " " + person.id;
+
+        // ====================== diff between == and ===
+        let z= 10;
+        if(z===10){
+            console.log("in if 1");
+        } else{
+            console.log("in else 1");
+        }
+
+        // ===spread ...
+// normal array concat() method
+let arr = [1,2,3];
+// let arr2 = [4,5];
+//  arr = arr.concat(arr2);
+
+let arr2 = arr;
+arr2.push(8);
+
+console.log(arr2);
+console.log(arr); 
+
+// with spread and rest
+let sarr = [1,2,3];
+let sarr2=[...sarr];
+sarr2.push(8);
+console.log("====sarrr2="+sarr2);
+console.log("====sarrr="+sarr);
+// let sarr2 = [4,5];
+  
+arr = [...sarr,...sarr2];
+console.log(arr); 
+
+//rest 
+function sum(a,...args) {
+    console.log("a="+a);
+  let sum = 0;
+  for (let arg of args) sum += arg;
+  return sum;
+}
+
+ x = sum(4, 9, 16, 25, 29, 100, 66, 77);
+document.getElementById("demo5").innerHTML = x;
+
+
+// Closures
+function myFunction() {
+    var age = 46;
+}
+console.log(age);
+
+
+// function add() {
+//   let counter = 0;
+//   function plus() {counter += 1;}
+//   plus();   
+//   return counter;
+// }
+
+//self-invokation
+const add = (function () {
+  let counter = 0;
+  return function () {counter += 1; 
+    return counter}
+})();
+
+console.log(add());
+console.log(add());
+console.log(add());
+console.log(add());
+
+
+    
+    </script>
+</body>
+
+</html>

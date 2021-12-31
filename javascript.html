@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<scri>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let x1=9;
+        console.log(x1++);
+        console.log(x1);
+        console.log(++x1);
+        console.log(x1);
+
+        x1+=2; //x1=x1+2
+        console.log(x1);
+        x1++;
+        // ?- ternary operator
+        console.log(x1%2==0?"Even":"Odd");
+
+        console.log(5**2);
+
+        let r="hi"+4+3;
+
+        console.log(r);
+        console.log(typeof "");
+
+        const cars=["BMW", "Maruti","audi"];
+        cars[0]="toyota";
+        cars.push("abc");
+        console.log(cars);
+
+
+        const car = { type:"BMW", model:"s50", color:"white"};
+        car.color="red";
+        car.owner="daksh";
+        console.log(car);
+
+        console.log("==========="+typeof car);
+        console.log(car instanceof Object);
+
+
+        //  logical operator
+        // &&,&,||,| !
+        // &&-> if first condition is flase it will not check next condition
+        // ||-> if first condition is true it will not check for next condition.
+
+        let a1=10;
+        let b1=10;
+        if(++a1 >= 10 | ++b1 >= 10){
+            console.log("in if");
+        } else{
+            console.log("in else");
+        }
+
+        console.log("a1 = "+ a1);
+        console.log("b1 = "+ b1);
+
+
+
+        carName ="BMW";
+        var carName = "Maruti";
+        console.log(carName);
+        let x=10;
+        x=8;
+        console.log("x = "+x)
+       {
+        let x=9;
+        console.log("x from block = "+x);
+
+       }
+
+       console.log("x from out of block = "+x);
+
+       
+       const y =9;
+    //    y=8;
+       {
+           const y = 5;
+           console.log(y);
+       }
+       {
+           const y = 10;
+           console.log(y);
+       }
+       console.log(y);
+
+
+       const numbers = [45,12,52,32];
+       for(let x in numbers){
+          console.log(numbers[x]) ;
+
+       }
+       for(let x of numbers){
+          console.log(x) ;
+          
+       }
+
+
+        
+    </script>
+</body>
+</html>
